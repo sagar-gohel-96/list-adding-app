@@ -1,14 +1,15 @@
 import React from "react";
-type User = {
-  name: string;
+export type User = {
+  name: string | undefined;
   address: string;
   mobileNo?: number;
+  email: string;
 };
-type UserListProops = {
-  userList: User[];
+export type UserListProps = {
+  userList: Partial<User>[];
 };
 
-const List = (props: UserListProops) => {
+const List = (props: UserListProps) => {
   return (
     <div>
       {props.userList &&

@@ -1,18 +1,19 @@
 import React from "react";
-type User = {
-  name: {
-    firstname: string;
-    lastname: string;
-  };
-  email: string;
-};
-type userName = Omit<User, "email">;
-type UserListprops = {
-  data: userName;
-};
+import { Data } from "../App";
+import { User, UserListProps } from "./List";
+import PartialL from "./PartialL";
 
-const Partial = (props: Partial<UserListprops>) => {
-  return <div>Partial{props.data?.name.firstname}</div>;
+interface PartialProps {
+  data: Data;
+}
+
+const Partial: React.FC<PartialProps> = (props) => {
+  const { data } = props;
+  return (
+    <div>
+      <PartialL email={data.email} />
+    </div>
+  );
 };
 
 export default Partial;
